@@ -1,0 +1,22 @@
+Bootstrap: docker
+From: ros:humble
+
+%post
+	apt -y update
+	apt -y install \
+		git \
+		ros-humble-desktop \
+		ros-humble-navigation2 \
+		ros-humble-nav2-bringup \
+		ros-humble-turtlebot3-gazebo
+	mkdir -p /ros_ws/src/
+	cd /ros_ws/src/
+	git clone -b humble https://github.com/iRobotEducation/create3_examples.git
+	cd ..
+	rosdep install --from-path src --ignore-src -yi
+	apt -y upgrade
+	apt -y clean
+
+%runscript
+	cd /ros_ws
+	bash
