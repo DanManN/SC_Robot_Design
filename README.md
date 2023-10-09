@@ -14,7 +14,10 @@ sudo apt install ros-humble-navigation2 ros-humble-nav2-bringup
 ```
 4. Download create3_examples:
 ```
-git submodule init & git submodule update
+git clone https://github.com/DanManN/SC_Robot_Design.git
+cd SC_Robot_Design
+git submodule init
+git submodule update
 ```
 5. Build the workspace:
 ```
